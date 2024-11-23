@@ -1,3 +1,7 @@
+/**1.2.17 - 2024.11.23**/
+– Updated: Compatible with WP 6.7 and WC 9.4
+– Updated: Update support class
+
 /**1.2.16 - 2024.06.17**/
 – Updated: Compatible with WC 8.9
 

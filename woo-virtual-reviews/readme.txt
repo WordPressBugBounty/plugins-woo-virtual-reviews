@@ -3,8 +3,8 @@ Contributors: villatheme, mrt3vn
 Donate link: http://www.villatheme.com/donate
 Tags: woocommerce reviews, virtual, reviews, virtual reviews, virtuals comment
 Requires at least: 5.0
-Tested up to: 6.5
-WC tested up to: 8.9
+Tested up to: 6.7
+WC tested up to: 9.4
 Requires PHP: 7.0
 Stable tag: trunk
 License: GPL v2 or later
@@ -169,6 +169,10 @@ Virtual Reviews for WooCommerce is a WooCommerce review plugin that helps you to
 4. Show canned
 
 == Changelog ==
+/**1.2.17 - 2024.11.23**/
+– Updated: Compatible with WP 6.7 and WC 9.4
+– Updated: Update support class
+
 /**1.2.16 - 2024.06.17**/
 – Updated: Compatible with WC 8.9
 
