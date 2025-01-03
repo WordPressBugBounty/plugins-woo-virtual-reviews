@@ -138,14 +138,14 @@ class Admin_Settings {
 			'virtual-reviews',
 			array( $this, 'add_reviews_page' )
 		);
-		add_submenu_page(
-			'virtual-reviews',
-			esc_html__( 'Schedule', 'woo-virtual-reviews' ),
-			esc_html__( 'Schedule', 'woo-virtual-reviews' ),
-			'manage_woocommerce',
-			'virtual-reviews-schedule',
-			array( $this, 'schedule_page' )
-		);
+//		add_submenu_page(
+//			'virtual-reviews',
+//			esc_html__( 'Schedule', 'woo-virtual-reviews' ),
+//			esc_html__( 'Schedule', 'woo-virtual-reviews' ),
+//			'manage_woocommerce',
+//			'virtual-reviews-schedule',
+//			array( $this, 'schedule_page' )
+//		);
 
 		add_submenu_page(
 			'virtual-reviews',
@@ -391,23 +391,15 @@ class Admin_Settings {
 
                 <div class="vi-ui top attached tabular menu">
                     <a class="active item" data-tab="general"><?php esc_html_e( 'General', 'woo-virtual-reviews' ); ?></a>
-                    <a class="item" data-tab="reply"><?php esc_html_e( 'Reply', 'woo-virtual-reviews' ); ?></a>
                     <a class="item" data-tab="review_form"><?php esc_html_e( 'Review form', 'woo-virtual-reviews' ); ?></a>
-                    <a class="item" data-tab="update"><?php esc_html_e( 'Update', 'woo-virtual-reviews' ); ?></a>
                 </div>
                 <div class="vi-ui bottom attached active tab segment" data-tab="general">
 					<?php Setting_Row::output_fields( $general ); ?>
-                </div>
-                <div class="vi-ui bottom attached tab segment" data-tab="reply">
-					<?php Setting_Row::output_fields( $reply ); ?>
                 </div>
                 <div class="vi-ui bottom attached tab segment" data-tab="review_form">
 					<?php Setting_Row::output_fields( $frontend ); ?>
                     <h4><?php esc_html_e( 'Purchased label', 'woo-virtual-reviews' ); ?></h4>
 					<?php Setting_Row::output_fields( $purchase_label ); ?>
-                </div>
-                <div class="vi-ui bottom attached tab segment" data-tab="update">
-					<?php get_pro_button(); ?>
                 </div>
                 <button type="submit" class="vi-ui button primary small" name="wvr_save_settings" value="save">
 					<?php esc_html_e( 'Save', 'woo-virtual-reviews' ); ?>

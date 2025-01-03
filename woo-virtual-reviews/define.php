@@ -98,7 +98,7 @@ if ( ! is_admin() ) {
 				'support'   => 'https://wordpress.org/support/plugin/woo-virtual-reviews/',
 				'docs'      => 'http://docs.villatheme.com/woocommerce-virtual-reviews/',
 				'review'    => 'https://wordpress.org/support/plugin/woo-virtual-reviews/reviews/?rate=5#rate-response',
-				'pro_url'   => 'https://1.envato.market/jW36P0',
+//				'pro_url'   => 'https://1.envato.market/jW36P0',
 				'css'       => WVR_PLUGIN_URL . "/assets/css/",
 				'image'     => WVR_PLUGIN_URL . "/assets/img/",
 				'slug'      => 'woo-virtual-reviews',

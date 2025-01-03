@@ -4,18 +4,18 @@
  * Plugin URI: https://villatheme.com/extensions/faview-virtual-reviews-for-woocommerce/
  * Description: Faview - Virtual Reviews for WooCommerce creates virtual reviews, display canned reviews to increase your conversion rate.
  * Author: VillaTheme
- * Version: 1.2.17
+ * Version: 1.2.18
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: woo-virtual-reviews
  * Domain Path: /languages
- * Copyright 2018-2024 VillaTheme.com. All rights reserved.
+ * Copyright 2018-2025 VillaTheme.com. All rights reserved.
  * Requires Plugins: woocommerce
  * Requires at least: 5.0
  * Tested up to: 6.7
  * WC requires at least: 5.0
- * WC tested up to: 9.4
+ * WC tested up to: 9.5
  * Requires PHP: 7.0
  */
 
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit();
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-define( 'VI_WOO_VIRTUAL_REVIEWS_VERSION', '1.2.17' );
+define( 'VI_WOO_VIRTUAL_REVIEWS_VERSION', '1.2.18' );
 
 class VirtualReviews_F {
 	public function __construct() {

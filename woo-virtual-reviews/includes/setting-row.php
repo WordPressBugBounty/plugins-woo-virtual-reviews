@@ -258,6 +258,7 @@ class Setting_Row {
 					break;
 
 				case 'pro_feature':
+					break;
 					?>
                     <tr valign="top">
                         <th scope="row" class="titledesc">
