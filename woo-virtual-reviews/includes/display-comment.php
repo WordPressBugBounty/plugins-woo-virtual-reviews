@@ -35,7 +35,7 @@ class Display_Comment {
 
 	public function enqueue_scripts() {
 		if ( is_product() && is_single() ) {
-			wp_enqueue_style( "wvr-front-comment", WVR_PLUGIN_URL . "/assets/css/front-comment.css" . '', '', VI_WOO_VIRTUAL_REVIEWS_VERSION );
+			wp_enqueue_style( "wvr-front-comment", WVR_PLUGIN_URL . "assets/css/front-comment.css" . '', '', VI_WOO_VIRTUAL_REVIEWS_VERSION );
 
 			$data                    = Data::instance();
 			$canned_text_color       = $data->get_param( 'canned_text_color' );
@@ -82,6 +82,9 @@ class Display_Comment {
 		$canned_style_desktop = $data->get_param( 'canned_style_desktop' );
 		$canned_style_mobile  = $data->get_param( 'canned_style_mobile' );
 		$text_slide_desktop   = $text_select_desktop = $text_slide_mobile = $text_select_mobile = '';
+		if ( is_array( $sample_cmts ) && isset( $sample_cmts['default'] ) ) {
+			$sample_cmts = $sample_cmts['default'];
+		}
 
 		if ( $show_canned ) {
 			if ( $canned_style_desktop == 'slide' ) {
@@ -137,7 +140,7 @@ class Display_Comment {
 				$arg = array(
 					'limit'      => - 1,
 					'meta_key'   => '_customer_user',// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-					'meta_value' => 1,// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+					'meta_value' => $comment_author_id,// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 					'post_type'  => wc_get_order_types(),
 					'status'     => array_keys( wc_get_is_paid_statuses() ),
 					//array_keys( wc_get_is_paid_statuses() , array( 'completed', 'on-hold', 'processing', 'cancelled' ))
@@ -174,11 +177,16 @@ class Display_Comment {
 					foreach ( $result as $var_id => $qty ) {
 						$var    = wc_get_product( $var_id );
 						$attrs  = apply_filters( 'wvr-variation-label', wc_get_formatted_variation( $var->get_variation_attributes(), true ) );
-						$string .= ( "<span class='wvr-product-purchased'>" . $attrs . " x " . $qty . "</span>" );
+						if ( empty( $attrs ) ) {
+							$unit   = $qty > 1 ? esc_html__( 'products', 'woo-virtual-reviews' ) : esc_html__( 'product', 'woo-virtual-reviews' );
+							$string .= ( "<span class='wvr-product-purchased'>" . $qty . " " . $unit . "</span>" );
+                        } else {
+							$string .= ( "<span class='wvr-product-purchased'>" . $attrs . " x " . $qty . "</span>" );
+						}
 					}
 				} else {
 					foreach ( $result as $qty ) {
-						$unit   = $qty > 1 ? __( 'products', 'woo-virtual-reviews' ) : __( 'product', 'woo-virtual-reviews' );
+						$unit   = $qty > 1 ? esc_html__( 'products', 'woo-virtual-reviews' ) : esc_html__( 'product', 'woo-virtual-reviews' );
 						$string .= ( "<span class='wvr-product-purchased'>" . $qty . " " . $unit . "</span>" );
 					}
 				}

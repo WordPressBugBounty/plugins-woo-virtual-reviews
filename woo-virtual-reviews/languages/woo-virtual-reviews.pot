@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Virtual Reviews for WooCommerce\n"
+"Project-Id-Version: Faview - Virtual Reviews for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 04:59+0000\n"
+"POT-Creation-Date: 2025-03-19 02:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,143 +13,106 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.2.0; wp-5.0.2"
+"X-Loco-Version: 2.7.1; wp-6.7.2\n"
+"X-Domain: woo-virtual-reviews"
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:440
-msgid "Add multiple review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:507
-msgid "Add review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:208
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:208
 msgid "Add review with no comment"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:127
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:469
-msgid "Add reviews"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:477
-msgid "Add single review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:108
-msgid "Add virtual reviews"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:266
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:266
 msgid ""
 "Add your list comments display on front of your website (max = 50 sentences),"
 " example:&#10I like it&#10Best product&#10Shipping fast"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:180
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:180
 msgid ""
 "Add your list virtual comments, example:&#10I like it&#10Best "
 "product&#10Shipping fast"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:172
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:172
 msgid "Add your list virtual names, example:&#10Alex&#10Anna&#10Ben"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:204
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:204
 msgid "Assign comment to product group"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:169
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:499
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:169
 msgid "Author"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:251
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:251
 msgid "Auto fill review"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:244
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:244
 msgid "Auto select 5 star"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:246
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:246
 msgid "Auto select rating 5 star"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:294
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:294
 msgid "Canned background color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:296
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:296
 msgid "Canned background color for slide style"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:308
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:308
 msgid "Canned background hover color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:310
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:310
 msgid "Canned background hover color for slide style"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:263
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:263
 msgid "Canned reviews"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:271
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:271
 msgid "Canned style for Desktop"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:282
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:282
 msgid "Canned style for front-end display (width device < 800px)"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:274
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:274
 msgid "Canned style for front-end display (width device > 800px)"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:279
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:279
 msgid "Canned style for Mobile"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:287
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:287
 msgid "Canned text color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:289
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:289
 msgid "Canned text color for slide style"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:301
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:301
 msgid "Canned text hover color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:303
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:303
 msgid "Canned text hover color for slide style"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:456
-msgid "Categories"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:432
-msgid "Click here to fix bug 0 review for previous version"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:381
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:381
 msgid "Custom CSS"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:480
-msgid "Date"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:74
-msgid "Delete Virtual Reviews"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:214
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:214
 msgid "Dropdown list"
 msgstr ""
 
@@ -159,17 +122,18 @@ msgstr ""
 
 #. Description of the plugin
 msgid ""
-"Faview - Virtual Reviews for WooCommerce creates virtual reviews, display "
-"canned reviews to increase your conversion rate."
+"Faview - Virtual Reviews for WooCommerce creates and display canned reviews "
+"to increase your conversion rate."
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:118
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:447
-msgid "From"
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:141
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:142
+msgid "Faview Reviews"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:393
-msgid "General"
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:152
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:153
+msgid "Faview Settings"
 msgstr ""
 
 #. Author URI of the plugin
@@ -181,159 +145,123 @@ msgid ""
 "https://villatheme.com/extensions/faview-virtual-reviews-for-woocommerce/"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:135
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:136
-msgid "Manual"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:181
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:181
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:189
 msgid "product"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:503
-msgid "Products"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:181
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:181
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:189
 msgid "products"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:326
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:326
 msgid "Purchased icon"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:360
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:360
 msgid "Purchased icon color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:361
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:361
 msgid "Purchased icon color for front-end display"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:327
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:327
 msgid "Purchased icon for front-end display"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:401
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:427
 msgid "Purchased label"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:374
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:374
 msgid "Purchased label background color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:375
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:375
 msgid "Purchased label background color for front-end display"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:367
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:367
 msgid "Purchased label text color"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:368
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:368
 msgid "Purchased label text color for front-end display"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:293
-msgid "Quantity is invalid"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:192
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:192
 msgid "Quantity of bought product"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:115
-msgid "Quantity or random with range. Max is 10 comment per product."
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:111
-msgid "Quantity review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:188
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:188
 msgid "Random rating for generate multiple reviews"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:418
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:185
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:485
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:59
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:185
 msgid "Rating"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:229
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:229
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:398
 msgid "Reply author"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:233
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:233
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:406
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:480
 msgid "Reply content"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:495
-msgid "Review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:394
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:419
 msgid "Review form"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:177
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:419
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:177
 msgid "Reviews"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:442
-msgid "Reviews per each product"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:99
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:115
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:102
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/display-comment.php:118
 msgid "Sample comments"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:405
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:434
 msgid "Save"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:152
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:153
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:388
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/woo-virtual-reviews.php:81
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:413
 msgid "Settings"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:257
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:257
 msgid "Show canned reviews"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:321
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:321
 msgid "Show purchased label"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:214
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:214
 msgid "Slide"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:122
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:451
-msgid "To"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:196
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:196
 msgid "Unique author"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:200
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:200
 msgid "Unique comment content"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:114
-msgid "Use '-' for range"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:225
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:225
 msgid "Use for real review"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:221
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:221
 msgid "Use for virtual review"
 msgstr ""
 
@@ -341,15 +269,6 @@ msgstr ""
 msgid "VillaTheme"
 msgstr ""
 
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:58
-msgid "Virtual Review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/add-multi-reviews.php:417
-msgid "Virtual review"
-msgstr ""
-
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:124
-#: D:/git/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:125
-msgid "Virtual Reviews"
+#: E:/git-1224/free-version/woo-virtual-reviews/woo-virtual-reviews/includes/admin-settings.php:493
+msgid "Your user role can't edit this option."
 msgstr ""

@@ -20,6 +20,9 @@ class Admin_Settings {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'save_option' ) );
+
+		add_action( 'wvr_params_admin_field_reply_content', [ $this, 'reply_content_field' ], 10, 2 );
+		add_action( 'wp_ajax_wvr_search_user', [ $this, 'wvr_search_user' ] );
 	}
 
 	public static function instance() {
@@ -32,11 +35,13 @@ class Admin_Settings {
 
 	public function admin_enqueue_scripts() {
 		// phpcs:disable WordPress.Security.NonceVerification
-		if ( empty( $_GET['page'] ) ) {
+		$screen = get_current_screen()->id;
+		if ( ! in_array( $screen, ['toplevel_page_virtual-reviews', 'virtual-reviews', 'virtual-reviews-old']) ) {
 			return;
 		}
-		switch ( $_GET['page'] ) {
-			case 'wvr_settings':
+		switch ( $screen ) {
+			case 'virtual-reviews':
+			case 'toplevel_page_virtual-reviews':
 				$this->delete_script();
 				wp_enqueue_script( 'wp-color-picker' );
 				wp_enqueue_style( 'wp-color-picker' );
@@ -50,27 +55,44 @@ class Admin_Settings {
 					'form.min',
 					'button.min',
 					'tab.min',
+					'dropdown.min',
+					'accordion.min',
+					'transition.min',
+					'select2.min',
 					'settings',
 				);
 
 				foreach ( $style_arr as $style ) {
-					wp_enqueue_style( "wvr-" . $style, WVR_PLUGIN_URL . "/assets/css/" . $style . ".css", '', VI_WOO_VIRTUAL_REVIEWS_VERSION );
+					wp_enqueue_style( "wvr-" . $style, WVR_PLUGIN_URL . "assets/css/" . $style . ".css", '', VI_WOO_VIRTUAL_REVIEWS_VERSION );
 				}
 
 				$js_arr = array(
 					'checkbox.min',
 					'jquery.address.min',
 					'tab.min',
+					'dropdown.min',
+					'accordion.min',
+					'transition.min',
+					'select2',
 					'settings',
 				);
 
 				foreach ( $js_arr as $js ) {
-					wp_enqueue_script( "wvr-" . $js, WVR_PLUGIN_URL . "/assets/js/" . $js . ".js", array( 'jquery' ), VI_WOO_VIRTUAL_REVIEWS_VERSION, false );
+					wp_enqueue_script( "wvr-" . $js, WVR_PLUGIN_URL . "assets/js/" . $js . ".js", array( 'jquery' ), VI_WOO_VIRTUAL_REVIEWS_VERSION, false );
 				}
+
+				$settings = Data::instance()->get_params();
+				$params   = [
+					'ajaxUrl'  => admin_url( 'admin-ajax.php' ),
+					'security' => wp_create_nonce( 'wvr_security' ),
+					'languages' => [],
+					'settings' => $settings,
+				];
+				wp_localize_script( "wvr-settings", 'wvrParams', $params );
 
 				break;
 
-			case 'virtual-reviews':
+			case 'virtual-reviews-old':
 				$this->delete_script();
 
 				$style_arr = array(
@@ -81,11 +103,10 @@ class Admin_Settings {
 					'form.min',
 					'button.min',
 					'select2.min',
-					'admin-review',
 				);
 
 				foreach ( $style_arr as $style ) {
-					wp_enqueue_style( "wvr-" . $style, WVR_PLUGIN_URL . "/assets/css/" . $style . ".css", '', VI_WOO_VIRTUAL_REVIEWS_VERSION );
+					wp_enqueue_style( "wvr-" . $style, WVR_PLUGIN_URL . "assets/css/" . $style . ".css", '', VI_WOO_VIRTUAL_REVIEWS_VERSION );
 				}
 
 				$js_arr = array(
@@ -93,15 +114,11 @@ class Admin_Settings {
 					'tab.min',
 					'form.min',
 					'select2',
-					'admin-review',
 				);
 
 				foreach ( $js_arr as $js ) {
-					wp_enqueue_script( "wvr-" . $js, WVR_PLUGIN_URL . "/assets/js/" . $js . ".js", array( 'jquery' ), VI_WOO_VIRTUAL_REVIEWS_VERSION, false );
+					wp_enqueue_script( "wvr-" . $js, WVR_PLUGIN_URL . "assets/js/" . $js . ".js", array( 'jquery' ), VI_WOO_VIRTUAL_REVIEWS_VERSION, false );
 				}
-
-				$localize = array( 'ajaxUrl' => admin_url( "admin-ajax.php" ), 'nonce' => wp_create_nonce( 'wvr_nonce' ) );
-				wp_localize_script( "wvr-admin-review", "wvrObject", $localize );
 				break;
 		}
 	}
@@ -121,38 +138,21 @@ class Admin_Settings {
 
 	public function admin_menu() {
 		add_menu_page(
-			esc_html__( 'Virtual Reviews', 'woo-virtual-reviews' ),
-			esc_html__( 'Virtual Reviews', 'woo-virtual-reviews' ),
+			esc_html__( 'Faview Reviews', 'woo-virtual-reviews' ),
+			esc_html__( 'Faview Reviews', 'woo-virtual-reviews' ),
 			'manage_woocommerce',
 			'virtual-reviews',
-			array( $this, 'add_reviews_page' ),
+			array( $this, 'page_settings_content' ),
 			'dashicons-star-filled',
 			40
 		);
 
 		add_submenu_page(
 			'virtual-reviews',
-			esc_html__( 'Manual', 'woo-virtual-reviews' ),
-			esc_html__( 'Manual', 'woo-virtual-reviews' ),
+			esc_html__( 'Faview Settings', 'woo-virtual-reviews' ),
+			esc_html__( 'Faview Settings', 'woo-virtual-reviews' ),
 			'manage_woocommerce',
 			'virtual-reviews',
-			array( $this, 'add_reviews_page' )
-		);
-//		add_submenu_page(
-//			'virtual-reviews',
-//			esc_html__( 'Schedule', 'woo-virtual-reviews' ),
-//			esc_html__( 'Schedule', 'woo-virtual-reviews' ),
-//			'manage_woocommerce',
-//			'virtual-reviews-schedule',
-//			array( $this, 'schedule_page' )
-//		);
-
-		add_submenu_page(
-			'virtual-reviews',
-			esc_html__( 'Settings', 'woo-virtual-reviews' ),
-			esc_html__( 'Settings', 'woo-virtual-reviews' ),
-			'manage_woocommerce',
-			'wvr_settings',
 			array( $this, 'page_settings_content' ) );
 	}
 
@@ -383,6 +383,31 @@ class Admin_Settings {
 
 			[ 'type' => 'sectionend' ]
 		];
+
+		$user_options  = [];
+		$reply_user_id = Data::instance()->get_param( 'reply_author' );
+		if ( $reply_user_id ) {
+			$user                           = get_user_by( 'id', $reply_user_id );
+			$user_options[ $reply_user_id ] = $user->display_name;
+		}
+		$bulk_reply_tab = [
+			[ 'type' => 'title' ],
+			[
+				'id'      => 'reply_author',
+				'require' => true,
+				'title'   => esc_html__( 'Reply author', 'woo-virtual-reviews' ),
+				'type'    => 'select',
+				'options' => $user_options,
+				'class'   => 'wvr-reply-author',
+			],
+			[
+				'id'    => 'reply_content',
+				'type'  => 'reply_content',
+				'title' => esc_html__( 'Reply content', 'woo-virtual-reviews' ),
+			],
+			[ 'type' => 'sectionend' ]
+		];
+
 		?>
         <div>
             <h2><?php esc_html_e( 'Settings', 'woo-virtual-reviews' ); ?></h2>
@@ -390,17 +415,21 @@ class Admin_Settings {
 				<?php wp_nonce_field( 'wvr_nonce', 'wvr_nonce' ) ?>
 
                 <div class="vi-ui top attached tabular menu">
-                    <a class="active item" data-tab="general"><?php esc_html_e( 'General', 'woo-virtual-reviews' ); ?></a>
-                    <a class="item" data-tab="review_form"><?php esc_html_e( 'Review form', 'woo-virtual-reviews' ); ?></a>
+<!--                    <a class="active item" data-tab="general">--><?php //esc_html_e( 'General', 'woo-virtual-reviews' ); ?><!--</a>-->
+                    <a class="active item" data-tab="review_form"><?php esc_html_e( 'Review form', 'woo-virtual-reviews' ); ?></a>
+<!--                    <a class="item" data-tab="reply">--><?php //esc_html_e( 'Bulk reply', 'woo-virtual-reviews' ); ?><!--</a>-->
                 </div>
-                <div class="vi-ui bottom attached active tab segment" data-tab="general">
-					<?php Setting_Row::output_fields( $general ); ?>
-                </div>
+<!--                <div class="vi-ui bottom attached active tab segment" data-tab="general">-->
+<!--					--><?php //Setting_Row::output_fields( $general ); ?>
+<!--                </div>-->
                 <div class="vi-ui bottom attached tab segment" data-tab="review_form">
 					<?php Setting_Row::output_fields( $frontend ); ?>
                     <h4><?php esc_html_e( 'Purchased label', 'woo-virtual-reviews' ); ?></h4>
 					<?php Setting_Row::output_fields( $purchase_label ); ?>
                 </div>
+<!--                <div class="vi-ui bottom attached active tab segment" data-tab="reply">-->
+<!--                    --><?php //Setting_Row::output_fields( $bulk_reply_tab ); ?>
+<!--                </div>-->
                 <button type="submit" class="vi-ui button primary small" name="wvr_save_settings" value="save">
 					<?php esc_html_e( 'Save', 'woo-virtual-reviews' ); ?>
                 </button>
@@ -408,111 +437,6 @@ class Admin_Settings {
         </div>
 		<?php
 		do_action( 'villatheme_support_woo-virtual-reviews' );
-	}
-
-	public function add_reviews_page() {
-		$timestamp    = current_time( 'U' );
-		$current_time = date_i18n( 'Y-m-d', $timestamp );
-		$categories   = Utils::get_product_categories( [ 'hide_empty' => true ] );
-		?>
-        <div class="wvr-wrapper">
-            <h2><?php esc_html_e( 'Reviews', 'woo-virtual-reviews' ); ?></h2>
-
-			<?php
-			$args = [
-				'type'     => 'comment_type',
-				'type__in' => 'self_review',
-				'number'   => 1,
-				'count'    => true
-			];
-			$r    = get_comments( $args );
-			if ( $r ) {
-				?>
-                <button class="wvr-fix-review vi-ui button small primary">
-					<?php esc_html_e( 'Click here to fix bug 0 review for previous version', 'woo-virtual-reviews' ); ?>
-                </button>
-                <span class="wvr-fix-review-remain"> </span>
-				<?php
-			}
-			?>
-
-            <div id="wvr-review-from-setting" class="vi-ui segment form small">
-                <h3><?php esc_html_e( 'Add multiple review', 'woo-virtual-reviews' ); ?></h3>
-                <div class="field">
-                    <label><?php esc_html_e( 'Reviews per each product', 'woo-virtual-reviews' ) ?></label>
-                    <input type="number" class="wvr-review-per-product" value="1">
-                </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label><?php esc_html_e( 'From', 'woo-virtual-reviews' ) ?></label>
-                        <input type="date" class="wvr-date-from" value="<?php echo esc_attr( $current_time ) ?>">
-                    </div>
-                    <div class="field">
-                        <label><?php esc_html_e( 'To', 'woo-virtual-reviews' ) ?></label>
-                        <input type="date" class="wvr-date-to" value="<?php echo esc_attr( $current_time ) ?>">
-                    </div>
-                </div>
-                <div class="field">
-                    <label><?php esc_html_e( 'Categories', 'woo-virtual-reviews' ) ?></label>
-
-                    <select class="vi-ui dropdown wvr-product-cat" multiple>
-						<?php
-						if ( ! empty( $categories ) ) {
-							foreach ( $categories as $cat_id => $cat_name ) {
-								printf( '<option value="%s" >%s</option>', esc_attr( $cat_id ), esc_html( $cat_name ) );
-							}
-						}
-						?>
-                    </select>
-                </div>
-                <button type="button" class="vi-ui button small wvr-add-multi-reviews">
-					<?php esc_html_e( 'Add reviews', 'woo-virtual-reviews' ); ?>
-                </button>
-                <div class="wvr-processing-bar">
-                    <div class="wvr-progress"></div>
-                </div>
-            </div>
-
-            <div id="wvr-custom-review" class="vi-ui segment form small">
-                <h3><?php esc_html_e( 'Add single review', 'woo-virtual-reviews' ); ?></h3>
-
-                <div class="field">
-                    <label><?php esc_html_e( 'Date', 'woo-virtual-reviews' ) ?></label>
-                    <input type="datetime-local" class="wvr-time" value="<?php echo esc_attr( $current_time . 'T' . date_i18n( 'H:i', $timestamp ) ) ?>">
-                </div>
-
-                <div class="field">
-                    <label><?php esc_html_e( 'Rating', 'woo-virtual-reviews' ) ?></label>
-                    <select class="wvr-rating">
-						<?php
-						for ( $i = 1; $i <= 5; $i ++ ) {
-							printf( '<option value="%d" %s>%d</option>', esc_attr( $i ), esc_attr( $i == 5 ? 'selected' : '' ), esc_attr( $i ) );
-						}
-						?>
-                    </select>
-                </div>
-                <div class="field">
-                    <label><?php esc_html_e( 'Review', 'woo-virtual-reviews' ) ?></label>
-                    <textarea class="wvr-review" rows="3"></textarea>
-                </div>
-                <div class="field">
-                    <label><?php esc_html_e( 'Author', 'woo-virtual-reviews' ) ?></label>
-                    <input class="wvr-author">
-                </div>
-                <div class="field">
-                    <label><?php esc_html_e( 'Products', 'woo-virtual-reviews' ) ?></label>
-                    <select class="wvr-products"> </select>
-                </div>
-                <button type="button" class="vi-ui button small wvr-add-review">
-					<?php esc_html_e( 'Add review', 'woo-virtual-reviews' ); ?>
-                </button>
-
-            </div>
-
-			<?php do_action( 'villatheme_support_woo-virtual-reviews' ); ?>
-
-        </div>
-		<?php
 	}
 
 	public function save_option() {
@@ -526,10 +450,82 @@ class Admin_Settings {
 		$data['cmt_frontend'] = isset( $_POST['wvr_params']['cmt_frontend'] ) ? $this->filter_data( sanitize_textarea_field( wp_unslash( $_POST['wvr_params']['cmt_frontend'] ) ) ) : array();
 		$data['custom_css']   = isset( $_POST['wvr_params']['custom_css'] ) ? $this->filter_data( sanitize_textarea_field( wp_unslash( $_POST['wvr_params']['custom_css'] ) ) ) : array();
 
-		$text_data = wc_clean( wp_unslash( $_POST['wvr_params'] ) );
+		$text_data = wc_clean( wp_unslash( $_POST['wvr_params'] ) );// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+//		$reply_data = wp_unslash( $_POST['wvr_reply_content'] );// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+//		$reply_data_format = [];
+//		if ( is_array( $reply_data ) ) {
+//			foreach ( $reply_data as $l_key => $l_val ) {
+//				if ( ! is_array( $l_val ) ) {
+//				    continue;
+//                }
+//				foreach ( $l_val as $r_key => $r_val ) {
+//					$reply_data_format[ $l_key ][ $r_key ] = wp_kses_post( trim( $r_val ) );
+//				}
+//			}
+//		}
+
+//		$reply_data = self::sanitize_reply_content( $reply_data, $reply_data_format );
+//		$text_data['reply_content'] = $reply_data;
+
 		$data      = wp_parse_args( $data, $text_data );
 
 		update_option( WVR_OPTION, $data, 'yes' );
+	}
+
+	public function reply_content_field() {
+		?>
+        <tr valign="top">
+            <th scope="row" class="titledesc">
+                <label for="reply_content">
+					<?php echo esc_html__( 'Reply content', 'woo-virtual-reviews' ); ?>
+                </label>
+            </th>
+            <td>
+                <div class="wvr-reply-content-section wvr-translatable-section"></div>
+            </td>
+        </tr>
+		<?php
+	}
+
+	public function wvr_search_user() {
+		check_ajax_referer( 'wvr_security', 'security' );
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			wp_send_json_error( [ 'message' => esc_html__( 'Your user role can\'t edit this option.', 'woo-virtual-reviews' ) ] );
+		}
+		$keyword = isset( $_POST['keyword'] ) ? sanitize_text_field( wp_unslash( $_POST['keyword'] ) ) : '';// phpcs:ignore WordPress.Security.NonceVerification.Missing
+		if ( ! $keyword ) {
+		    wp_die();
+
+		}
+		$arg = array(
+			'posts_per_page' => 50,
+			'search'         => "*{$keyword}*",
+			'capability'     => 'edit_posts'
+		);
+		$result     = [];
+		$found_user = get_users( $arg );
+		foreach ( $found_user as $user ) {
+			$result[] = [ 'id' => $user->ID, 'text' => $user->display_name ];
+		}
+		wp_send_json( $result );
+	}
+
+	public function sanitize_reply_content( $value, $raw_value ) {
+		if ( empty( $raw_value ) || ! is_array( $raw_value ) ) {
+			return [];
+		}
+
+		foreach ( $raw_value as $lang => $content ) {
+			if ( empty( $content ) ) {
+				continue;
+			}
+
+			foreach ( $content as $rate => $replies ) {
+				$value[ $lang ][ $rate ] = explode( "\n", wp_kses_post( $replies ) );
+			}
+		}
+
+		return $value;
 	}
 
 	public function filter_data( $arg, $limit = 10000 ) {

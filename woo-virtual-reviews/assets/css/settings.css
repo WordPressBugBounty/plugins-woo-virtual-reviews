@@ -125,6 +125,10 @@ html, body {
     box-sizing: border-box;
 }
 
+form.vi-ui.form * {
+    box-sizing: border-box;
+}
+
 .wvr-cb-show-canned {
     margin: 0px !important;
     padding: 0px !important;

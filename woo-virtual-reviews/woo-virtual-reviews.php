@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Faview - Virtual Reviews for WooCommerce
  * Plugin URI: https://villatheme.com/extensions/faview-virtual-reviews-for-woocommerce/
- * Description: Faview - Virtual Reviews for WooCommerce creates virtual reviews, display canned reviews to increase your conversion rate.
+ * Description: Faview - Virtual Reviews for WooCommerce creates and display canned reviews to increase your conversion rate.
  * Author: VillaTheme
- * Version: 1.2.18
+ * Version: 2.0.0
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@
  * Requires at least: 5.0
  * Tested up to: 6.7
  * WC requires at least: 5.0
- * WC tested up to: 9.5
+ * WC tested up to: 9.7
  * Requires PHP: 7.0
  */
 
@@ -23,7 +23,9 @@ defined( 'ABSPATH' ) || exit();
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-define( 'VI_WOO_VIRTUAL_REVIEWS_VERSION', '1.2.18' );
+define( 'VI_WOO_VIRTUAL_REVIEWS_VERSION', '2.0.0' );
+define( 'WVR_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'WVR_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 class VirtualReviews_F {
 	public function __construct() {
@@ -52,7 +54,7 @@ class VirtualReviews_F {
 					[
 						'slug' => 'woocommerce',
 						'name' => 'WooCommerce' ,
-						'file' => 'woocommerce/woocommerce.php',
+						'defined_version' => 'WC_VERSION',
 						'version' => '7.0',
 					]
 				]
@@ -76,7 +78,7 @@ class VirtualReviews_F {
 	}
 
 	public function wvr_add_action_links( $links ) {
-		$my_link = '<a href="' . admin_url( 'admin.php?page=wvr_settings' ) . '">' . __( 'Settings', 'woo-email-customizer' ) . '</a>';
+		$my_link = '<a href="' . admin_url( 'admin.php?page=virtual-reviews' ) . '">' . esc_html__( 'Settings', 'woo-virtual-reviews' ) . '</a>';
 		array_unshift( $links, $my_link );
 
 		return $links;

@@ -10,23 +10,17 @@ namespace WooVR;
 
 defined( 'ABSPATH' ) || exit();
 
-$plugin_url = plugins_url( '', __FILE__ );
-
-define( 'WVR_PLUGIN_DIR_PATH', WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . "woo-virtual-reviews" . DIRECTORY_SEPARATOR );
-define( 'WVR_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
-define( 'WVR_PLUGIN_URL', plugins_url() . "/woo-virtual-reviews" );
-
 define( 'WVR_OPTION', "wvr_data" );
 
 define( 'WVR_INCLUDES', WVR_PLUGIN_DIR_PATH . "includes" . DIRECTORY_SEPARATOR );
 
-define( 'WVR_CSS_URL', $plugin_url . "/assets/css/" );
+define( 'WVR_CSS_URL', WVR_PLUGIN_URL . "assets/css/" );
 define( 'WVR_CSS_DIR', WVR_PLUGIN_DIR_PATH . "assets" . DIRECTORY_SEPARATOR . "css" . DIRECTORY_SEPARATOR );
 
-define( 'WVR_JS_URL', $plugin_url . "/assets/js/" );
+define( 'WVR_JS_URL', WVR_PLUGIN_URL . "assets/js/" );
 define( 'WVR_JS_DIR', WVR_PLUGIN_DIR_PATH . "assets" . DIRECTORY_SEPARATOR . "js" . DIRECTORY_SEPARATOR );
 
-define( 'WVR_IMAGES_URL', $plugin_url . "/assets/img/" );
+define( 'WVR_IMAGES_URL', WVR_PLUGIN_URL . "assets/img/" );
 
 
 if ( ! function_exists( 'WooVR\get_pro_button' ) ) {
@@ -96,11 +90,11 @@ if ( ! is_admin() ) {
 		new \VillaTheme_Support(
 			array(
 				'support'   => 'https://wordpress.org/support/plugin/woo-virtual-reviews/',
-				'docs'      => 'http://docs.villatheme.com/woocommerce-virtual-reviews/',
+				'docs'      => 'https://docs.villatheme.com/?item=faview',
 				'review'    => 'https://wordpress.org/support/plugin/woo-virtual-reviews/reviews/?rate=5#rate-response',
 //				'pro_url'   => 'https://1.envato.market/jW36P0',
-				'css'       => WVR_PLUGIN_URL . "/assets/css/",
-				'image'     => WVR_PLUGIN_URL . "/assets/img/",
+				'css'       => WVR_PLUGIN_URL . "assets/css/",
+				'image'     => WVR_PLUGIN_URL . "assets/img/",
 				'slug'      => 'woo-virtual-reviews',
 				'menu_slug' => 'virtual-reviews',
 				'version'   => VI_WOO_VIRTUAL_REVIEWS_VERSION,

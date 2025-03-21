@@ -153,6 +153,7 @@ class Setting_Row {
 
 				case 'select':
 				case 'multiselect':
+				    $_class = empty( $_class ) ? 'vi-ui ui selection dropdown fluid wvr-dropdown' : $_class;
 					?>
                     <tr valign="top">
                         <th scope="row" class="titledesc">
@@ -160,7 +161,7 @@ class Setting_Row {
                         </th>
                         <td class="<?php echo esc_attr( sanitize_title( $type ) ); ?>">
                             <div>
-                                <select class="vi-ui ui selection dropdown fluid"
+                                <select
 									<?php
 									printf( 'name="%s" id="%s" class="%s" %s', esc_attr( $_name ), esc_attr( $_id ), esc_attr( $_class ), esc_attr( $custom_attributes ) );
 									echo 'multiselect' === $type ? 'multiple="multiple"' : '';
@@ -194,6 +195,9 @@ class Setting_Row {
                         <td class="<?php echo esc_attr( sanitize_title( $type ) ); ?>">
                             <div class="wvr_params-<?php echo esc_attr( $_id ) ?>-field">
 								<?php
+								if ( is_array( $_value ) && isset( $_value['default'] ) ) {
+									$_value = $_value['default'];
+								}
 								if ( is_array( $_value ) ) {
 									$separator = isset( $option['separator'] ) ? $option['separator'] : "\n";
 									$_value    = implode( $separator, $_value );
