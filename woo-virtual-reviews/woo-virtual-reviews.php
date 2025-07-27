@@ -13,9 +13,9 @@
  * Copyright 2018-2025 VillaTheme.com. All rights reserved.
  * Requires Plugins: woocommerce
  * Requires at least: 5.0
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * WC requires at least: 5.0
- * WC tested up to: 9.7
+ * WC tested up to: 9.8
  * Requires PHP: 7.0
  */
 

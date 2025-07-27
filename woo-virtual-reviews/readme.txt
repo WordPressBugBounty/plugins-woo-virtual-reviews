@@ -3,10 +3,10 @@ Contributors: villatheme, mrt3vn
 Donate link: http://www.villatheme.com/donate
 Tags: woocommerce reviews, virtual, reviews, virtual reviews, virtuals comment
 Requires at least: 5.0
-Tested up to: 6.7
-WC tested up to: 9.7
+Tested up to: 6.8
+WC tested up to: 9.8
 Requires PHP: 7.0
-Stable tag: 2.0.0
+Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Faview - Virtual Reviews for WooCommerce generates and displays canned reviews t
 
 Faview enhances your WooCommerce review system with smart features that make leaving reviews easier and more engaging for customers. With predefined review content, canned reviews, and customization options, you can encourage more customer feedback while maintaining a seamless experience.
 
->[Try the Demo](http://new2new.com/?item=faview "Demo Virtual Reviews for WooCommerce") | [Documents](http://docs.villatheme.com/?item=faview "Documents" ) |[Facebook group](https://www.facebook.com/groups/villatheme "VillaTheme")
+>[Try the Demo](http://new2new.com/?item=faview "Demo Faview Virtual Reviews for WooCommerce") | [Documents](http://docs.villatheme.com/?item=faview "Documents" ) |[Facebook group](https://www.facebook.com/groups/villatheme "VillaTheme")
 
 [youtube https://www.youtube.com/watch?v=Xoxdgwv0JDM]
 
@@ -49,6 +49,9 @@ Faview enhances your WooCommerce review system with smart features that make lea
 &#9658; [jQuery Address](https://jquery.com/license/)
 
 ### MAY BE YOU NEED
+
+[VARGAL - Additional Variation Gallery for Woo](https://wordpress.org/plugins/vargal-additional-variation-gallery-for-woo)
+
 [AFFI – Affiliate Marketing for WooCommerce](https://wordpress.org/plugins/affi-affiliate-marketing-for-woo)
 
 [9Map – Map Multi Locations](https://wordpress.org/plugins/9map-map-multi-locations)
@@ -176,11 +179,13 @@ Faview enhances your WooCommerce review system with smart features that make lea
 == Frequently Asked Questions ==
 
 == Screenshots ==
-
+1. Add multiple review
+2. After adding review
 
 == Changelog ==
 /**2.0.0 - 2025.03.19**/
-- Updated: Remove manual add review
+- Updated: Remove manual add review feature
+- Updated: Remove manual add reply feature
 
 /**1.2.18 - 2025.01.03**/
 - Updated: VillaTheme support
