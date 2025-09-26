@@ -4,7 +4,7 @@ Donate link: http://www.villatheme.com/donate
 Tags: woocommerce reviews, virtual, reviews, virtual reviews, virtuals comment
 Requires at least: 5.0
 Tested up to: 6.8
-WC tested up to: 9.8
+WC tested up to: 10.2
 Requires PHP: 7.0
 Stable tag: trunk
 License: GPL v2 or later
@@ -49,6 +49,8 @@ Faview enhances your WooCommerce review system with smart features that make lea
 &#9658; [jQuery Address](https://jquery.com/license/)
 
 ### MAY BE YOU NEED
+
+[VISeek – Easy Custom Search](https://wordpress.org/plugins/viseek-easy-custom-search)
 
 [VARGAL - Additional Variation Gallery for Woo](https://wordpress.org/plugins/vargal-additional-variation-gallery-for-woo)
 
@@ -183,6 +185,10 @@ Faview enhances your WooCommerce review system with smart features that make lea
 2. After adding review
 
 == Changelog ==
+/**2.0.1 - 2025.09.26**/
+- Updated: Remove unused filter
+- Updated: Delay select rating function
+
 /**2.0.0 - 2025.03.19**/
 - Updated: Remove manual add review feature
 - Updated: Remove manual add reply feature

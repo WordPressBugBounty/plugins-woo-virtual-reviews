@@ -27,8 +27,10 @@ jQuery(document).ready(function ($) {
     });
 
     if (php_js.auto_rating) {
-        $('p.stars').addClass('selected');
-        $('a.star-5').addClass('active');
+        setTimeout(function () {
+            $('p.stars').addClass('selected');
+            $('a.star-5').addClass('active');
+        }, 1000);
         $('select#rating option[value="5"]').attr('selected', 'selected');
 
         if (php_js.first_comment) {

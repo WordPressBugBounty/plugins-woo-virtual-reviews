@@ -19,7 +19,7 @@ class Add_Multi_Reviews {
 
 	function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'woo_virtual_reviews_asset' ) );
-		add_action( 'admin_head', array( $this, 'my_custom_fonts' ) );
+//		add_action( 'admin_head', array( $this, 'my_custom_fonts' ) );
 
 		//Admin product page
 		add_action( 'manage_posts_custom_column', array( $this, 'show_virtual_review_count' ), 10, 2 );
@@ -98,7 +98,7 @@ class Add_Multi_Reviews {
 	}
 
 	public function my_custom_fonts() {
-		$style_head = '<style> .column-virtual_review, .column-wvr_rating {width: 70px !important;text-align: center !important;} </style>';
+		$style_head = '.column-virtual_review, .column-wvr_rating {width: 70px !important;text-align: center !important;}';
 		wp_add_inline_style( 'wvr-admin-head', $style_head );
 	}
 }
