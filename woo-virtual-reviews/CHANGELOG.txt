@@ -1,3 +1,7 @@
+/**2.0.2 - 2026.01.20**/
+– Updated: Compatible with WP 6.9 and WC 10.4
+– Updated: Update support class
+
 /**2.0.1 - 2025.09.26**/
 - Updated: Remove unused filter
 - Updated: Delay select rating function
